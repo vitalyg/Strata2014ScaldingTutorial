@@ -35,7 +35,7 @@ Enough said.
 
      > sbt
      ...
-     Tutorial>
+     Tutorial >
 
 This step may take quite a bit of time downloading all the parts and dependencies so it
 makes so much sense to run it in advance.
@@ -43,15 +43,15 @@ makes so much sense to run it in advance.
 4. Compile and Run the WordCount Example
 ----------------------------------------
 
-     Tutorial> run tutorial.WordCountJob --input data/onegin.txt --output data/onegin.tsv
+     Tutorial > run tutorial.WordCountJob --input data/onegin.txt --output data/onegin.tsv
      ...
      [success] Total time: 2 s, completed Feb 3, 2014 9:15:12 PM
-     Tutorial>
+     Tutorial >
 
 where:
 
   - `tutorial.WordCountJob` is the name of the main word counting class
-  - `--input data/onegin.txt` is the location of the input file relative to the project root
+  - `--input data/onegin.txt` is the location of the input masterpiece relative to the project root
   - `--output data/onegin.tsv` is the location of the output tab-separated file with word counts
 
 This step can also take quite a bit of time.
