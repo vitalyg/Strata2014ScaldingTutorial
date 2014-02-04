@@ -20,7 +20,7 @@ object BuildSettings {
     organization  := "SnowPlow Analytics Ltd",
     version       := "0.0.4",
     description   := "The Scalding WordCountJob example as a standalone SBT project, ready for Amazon EMR",
-    scalaVersion  := "2.9.2", // -> 2.10.0 when Scalding is ready
+    scalaVersion  := "2.10.3", 
     scalacOptions := Seq("-deprecation", "-encoding", "utf8"),
     resolvers     ++= Dependencies.resolutionRepos
   )
@@ -42,9 +42,9 @@ object BuildSettings {
         "minlog-1.2.jar", // Otherwise causes conflicts with Kyro (which bundles it)
         "janino-2.5.16.jar", // Janino includes a broken signature, and is not needed anyway
         "commons-beanutils-core-1.8.0.jar", // Clash with each other and with commons-collections
-        "commons-beanutils-1.7.0.jar",      // "
-        "hadoop-core-0.20.2.jar", // Provided by Amazon EMR. Delete this line if you're not on EMR
-        "hadoop-tools-0.20.2.jar" // "
+        "commons-beanutils-1.7.0.jar"      // "
+//        "hadoop-core-0.20.2.jar", // Provided by Amazon EMR. Delete this line if you're not on EMR
+//        "hadoop-tools-0.20.2.jar" // "
       ) 
       cp filter { jar => excludes(jar.data.getName) }
     },
