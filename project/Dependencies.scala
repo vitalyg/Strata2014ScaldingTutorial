@@ -26,8 +26,9 @@ object Dependencies {
   }
 
   object Libraries {
-    val scaldingCore = "com.twitter"                %%  "scalding-core"       % V.scalding
-    val hadoopCore   = "org.apache.hadoop"          % "hadoop-core"           % V.hadoop       // % "provided"
+    val scaldingCore= "com.twitter" %% "scalding-core" % V.scalding
+    val hadoopCore= "org.apache.hadoop" % "hadoop-core" % V.hadoop
+    // to run on Hadoop cluster you would want val hadoopCore= "org.apache.hadoop" % "hadoop-core" % V.hadoop % "provided"
     // Add additional libraries from mvnrepository.com (SBT syntax) here...
 
     // Scala (test only)

@@ -10,13 +10,14 @@
  * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the Apache License Version 2.0 for the specific language governing permissions and limitations there under.
  */
-package com.snowplowanalytics.hadoop.scalding
+package tutorial
 
 // Hadoop
-import org.apache.hadoop
 
 // Scalding
 import com.twitter.scalding.Tool
+import org.apache.hadoop.util.ToolRunner
+import org.apache.hadoop.conf.Configuration
 
 /**
  * Entrypoint for Hadoop to kick off the job.
@@ -25,6 +26,6 @@ import com.twitter.scalding.Tool
  */
 object JobRunner {
   def main(args : Array[String]) {
-    hadoop.util.ToolRunner.run(new hadoop.conf.Configuration, new Tool, args);
+    ToolRunner.run(new Configuration, new Tool, args);
   }
 }
