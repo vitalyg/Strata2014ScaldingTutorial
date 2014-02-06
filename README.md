@@ -62,6 +62,21 @@ This step can also take quite a bit of time.
 
 The file `onegin.tsv` should be created in the `data` directory.
 
+FAQ
+---
+
+### I am getting java.lang.OutOfMemoryError ###
+
+You will need to set JVM runtime parameters. Depending on the type of error you will need to increase
+heap size (`-Xmx` or PermGen space `-XX:MaxPermSize`).
+
+You can set up options in the SBT command or in file located at `~/.sbtconfig`, for example:
+
+     > cat > ~/.sbtconfig
+     export SBT_OPTS="-Xmx1024m -XX:MaxPermSize256m"
+     <ctrl>D
+     >
+
 
 Copyright and license
 ---------------------
