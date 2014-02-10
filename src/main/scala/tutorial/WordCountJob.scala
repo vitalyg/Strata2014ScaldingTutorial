@@ -14,12 +14,15 @@ package tutorial
 
 // Scalding
 import com.twitter.scalding._
+import TDsl._
 
 class WordCountJob(args : Args) extends Job(args) {
-  TextLine( args("input") )
-    .flatMap('line -> 'word) { line : String => tokenize(line) }
-    .groupBy('word) { _.size }
-    .write( Tsv( args("output") ) )
+  TypedTsv[String]("data/onegin.txt")
+    .filter(s => s != null && s.length > 0)
+    .flatMap(tokenize)
+    .groupBy(identity)
+    .size
+    .write(TypedTsv[(String, Long)]("data/onegin.tsv"))
 
   // Split a piece of text into individual words.
   def tokenize(text : String) : Array[String] = {

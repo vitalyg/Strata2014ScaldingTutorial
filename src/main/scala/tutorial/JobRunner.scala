@@ -26,6 +26,6 @@ import org.apache.hadoop.conf.Configuration
  */
 object JobRunner {
   def main(args : Array[String]) {
-    ToolRunner.run(new Configuration, new Tool, args);
+    ToolRunner.run(new Configuration, new Tool, args.head +: "--local" +: args.tail)
   }
 }
