@@ -54,7 +54,7 @@ This step can also take quite a bit of time.
 5. See the Results
 ------------------
 
-The file `onegin.tsv` should be created in the `data` directory.
+The file `oneginWordCounts.tsv` should be created in the `data` directory.
 
 FAQ
 ---

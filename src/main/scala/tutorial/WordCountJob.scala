@@ -22,7 +22,7 @@ class WordCountJob(args : Args) extends Job(args) {
     .flatMap(tokenize)
     .groupBy(identity)
     .size
-    .write(TypedTsv[(String, Long)]("data/onegin.tsv"))
+    .write(TypedTsv[(String, Long)]("data/oneginWordCounts.tsv"))
 
   // Split a piece of text into individual words.
   def tokenize(text : String) : Array[String] = {
