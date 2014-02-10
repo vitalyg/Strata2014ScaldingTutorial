@@ -22,11 +22,11 @@ class WordCountJob(args : Args) extends Job(args) {
     .flatMap(tokenize)
     .groupBy(identity)
     .size
-    .write(TypedTsv[(String, Long)]("data/onegin.tsv"))
+    .write(TypedTsv[(String, Long)]("data/oneginWordCounts.tsv"))
 
   // Split a piece of text into individual words.
   def tokenize(text : String) : Array[String] = {
     // Lowercase each word and remove punctuation.
-    text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
+    text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+").filter(_.length > 0)
   }
 }
