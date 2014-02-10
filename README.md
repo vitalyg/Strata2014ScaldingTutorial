@@ -43,13 +43,14 @@ makes so much sense to run it in advance.
 4. Compile and Run the WordCount Example
 ----------------------------------------
 
-     Tutorial > run tutorial.WordCountJob --input data/onegin.txt --output data/onegin.tsv
+     Tutorial > run tutorial.WordCountJob --local --input data/onegin.txt --output data/onegin.tsv
      ...
      [success] Total time: 2 s, completed Feb 3, 2014 9:15:12 PM
      Tutorial >
 
 where:
 
+  - `local` means that the job will run locally
   - `tutorial.WordCountJob` is the name of the main word counting class
   - `--input data/onegin.txt` is the location of the input masterpiece relative to the project root
   - `--output data/onegin.tsv` is the location of the output tab-separated file with word counts
@@ -61,6 +62,21 @@ This step can also take quite a bit of time.
 ------------------
 
 The file `onegin.tsv` should be created in the `data` directory.
+
+FAQ
+---
+
+### I am getting java.lang.OutOfMemoryError ###
+
+You will need to set JVM runtime parameters. Depending on the type of error you will need to increase
+heap size (`-Xmx` or PermGen space `-XX:MaxPermSize`).
+
+You can set up options in the SBT command or in file located at `~/.sbtconfig`, for example:
+
+     > cat > ~/.sbtconfig
+     export SBT_OPTS="-Xmx1024m -XX:MaxPermSize256m"
+     <ctrl>D
+     >
 
 
 Copyright and license
