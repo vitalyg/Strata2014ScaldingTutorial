@@ -28,7 +28,11 @@ detailed information about install on other systems.
      > git clone https://github.com/vitalyg/Strata2014ScaldingTutorial.git
      > cd Strata2014ScaldingTutorial
 
-Enough said.
+Some people reported problems with git command. As an alternative, you can download the [zip file](http://github.com/vitalyg/Strata2014ScaldingTutorial/archive/master.zip) and uncompress it:
+
+     > wget http://github.com/vitalyg/Strata2014ScaldingTutorial/archive/master.zip
+     > unzip master.zip
+     > cd Strata2014ScaldingTutorial-master
 
 3. Enter SBT Command Line
 -------------------------
