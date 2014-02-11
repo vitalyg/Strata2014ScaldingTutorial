@@ -11,7 +11,7 @@ import com.twitter.algebird.mutable.PriorityQueueToListAggregator
 class Tutorial1(args : Args) extends Job(args) {
   val topWords = args("k").toInt
 
-  val wordCounts = TypedTsv[(String, Long)]("data/oneginWordCounts.tsv")
+  val wordCounts = TypedTsv[(String, Long)]("data/grimmWordCounts.tsv")
 
   // The naive way. Don't do that!
   /*wordCounts
@@ -19,7 +19,7 @@ class Tutorial1(args : Args) extends Job(args) {
     .sortBy(-_._2)
     .take(topWords)
     .values
-    .write(TypedTsv[(String, Long)](s"data/most-common-$topWords-words.tsv"))
+    .write(TypedTsv[(String, Long)](s"data/mostCommon${topWords}Words.tsv"))
     */
 
   wordCounts

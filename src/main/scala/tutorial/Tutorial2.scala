@@ -17,23 +17,25 @@ class Tutorial2(args : Args) extends Job(args) {
 
   val topWords = args("k").toInt
 
-  val cantos = TypedTsv[(Int, String)]("data/chapters.txt")
+  val cantos = TypedTsv[(String, String)]("data/grimmBooks.txt")
 
   val words = cantos.flatMap{ case (c, ws) => tokenize(ws).map(w => (c, w)) }
 
   val tf = words.groupBy(identity).size
-  val D = 8.0 // not necessary to compute for ranking
+  val D = 62.0 // not necessary to compute for ranking
   val df = tf.groupBy(_._1._2).size
 
   val tfidf = tf
     .joinBy(df)(_._1._2, _._1)
     .mapValues{ case (((c, w), t), (_, d)) => (c, w, t * math.log(D / d)) }
     .values
+    .filter(_._3 > 0)
+    .write(TypedTsv[(String, String, Double)]("data/grimmTfIdf.tsv"))
 
   tfidf
     .groupBy(_._1)
-    .aggregate(new PriorityQueueToListAggregator[(Int, String, Double)](topWords)(Ordering.by(-_._3)))
+    .aggregate(new PriorityQueueToListAggregator[(String, String, Double)](topWords)(Ordering.by(-_._3)))
     .values
     .flatten
-    .write(TypedTsv[(Int, String, Double)]("data/topWordsInEveryCanto.tsv"))
+    .write(TypedTsv[(String, String, Double)]("data/topWordsInEveryBook.tsv"))
 }

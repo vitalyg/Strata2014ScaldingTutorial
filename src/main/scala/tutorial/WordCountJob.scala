@@ -17,12 +17,12 @@ import com.twitter.scalding._
 import TDsl._
 
 class WordCountJob(args : Args) extends Job(args) {
-  TypedTsv[String]("data/onegin.txt")
+  TypedTsv[String]("data/grimm.txt")
     .filter(s => s != null && s.length > 0)
     .flatMap(tokenize)
     .groupBy(identity)
     .size
-    .write(TypedTsv[(String, Long)]("data/oneginWordCounts.tsv"))
+    .write(TypedTsv[(String, Long)]("data/grimmWordCounts.tsv"))
 
   // Split a piece of text into individual words.
   def tokenize(text : String) : Array[String] = {
