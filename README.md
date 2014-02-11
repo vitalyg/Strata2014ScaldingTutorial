@@ -67,7 +67,7 @@ heap size (`-Xmx` or PermGen space `-XX:MaxPermSize`).
 You can set up options in the SBT command or in file located at `~/.sbtconfig`, for example:
 
      > cat > ~/.sbtconfig
-     export SBT_OPTS="-Xmx1024m -XX:MaxPermSize256m"
+     export SBT_OPTS="-Xmx1024m -XX:MaxPermSize=256m"
      <ctrl>D
      >
 
