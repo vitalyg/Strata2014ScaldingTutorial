@@ -25,7 +25,7 @@ detailed information about install on other systems.
 2. Clone this project
 ---------------------
 
-     > git clone git@github.com:vitalyg/Strata2014ScaldingTutorial.git
+     > git clone https://github.com/vitalyg/Strata2014ScaldingTutorial.git
      > cd Strata2014ScaldingTutorial
 
 Enough said.
